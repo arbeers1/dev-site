@@ -12,12 +12,15 @@ window.onload = function () {
     height = animatedMenu.offsetTop;
     window.onscroll = function () {
         var newY = window.pageYOffset;
-        if (newY < yPos && !animationInProgress && !menuDown) {
+        if (newY < yPos && !animationInProgress) {
             animateVisible();
-        } else if (newY > yPos && !animationInProgress && menuDown) {
+            animationInProgress = false;
+            console.log("Animation Finished");
+        } else if (newY > yPos && !animationInProgress) {
             animateHidden();
+            animationInProgress = false;
+            console.log("Animation Finished");
         }
-        animationInProgress = false;
         yPos = newY;
     }
 }
@@ -25,12 +28,13 @@ window.onload = function () {
 function animateVisible() {
     animationInProgress = true;
     menuDown = true;
-    var timer = setInterval(function () {
+    var upTimer = setInterval(function () {
         if (currPos < 0) {
             currPos++;
             animatedMenu.style.top = currPos + 'px';
+            console.log("down")
         } else {
-            clearInterval(timer);
+            clearInterval(upTimer);
         }
     }, 2);
 }
@@ -38,14 +42,15 @@ function animateVisible() {
 function animateHidden() {
     animationInProgress = true;
     menuDown = false;
-    var timer = setInterval(function () {
-        if (currPos >= height) {
+    var downTimer = setInterval(function () {
+        if (currPos > height) {
             currPos--;
             animatedMenu.style.top = currPos + 'px';
-            console.log(currPos);
+            console.log("hiding");
         } else {
-            clearInterval(timer);
+            clearInterval(downTimer);
         }
     }, 2);
+
 }
 
