@@ -1,20 +1,20 @@
 var animationInProgress = false;
 var menuDown = false;
 var yPos = 0;
-var element;
+var animatedMenu;
 var currPos;
 var height;
 
 
 window.onload = function () {
-    element = document.getElementById("onScrollMenu");
-    currPos = element.offsetTop;
-    height = element.offsetTop;
+    animatedMenu = document.getElementById("onScrollMenu");
+    currPos = animatedMenu.offsetTop;
+    height = animatedMenu.offsetTop;
     window.onscroll = function () {
         var newY = window.pageYOffset;
-        if (newY < yPos && !animationInProgress) {
+        if (newY < yPos && !animationInProgress && !menuDown) {
             animateVisible();
-        } else if (newY > yPos && menuDown) {
+        } else if (newY > yPos && !animationInProgress && menuDown) {
             animateHidden();
         }
         animationInProgress = false;
@@ -24,28 +24,28 @@ window.onload = function () {
 
 function animateVisible() {
     animationInProgress = true;
+    menuDown = true;
     var timer = setInterval(function () {
         if (currPos < 0) {
             currPos++;
-            element.style.top = currPos + 'px';
-            console.log(currPos);
+            animatedMenu.style.top = currPos + 'px';
         } else {
             clearInterval(timer);
         }
-    }, 20);
-    menuDown = true;
+    }, 2);
 }
 
 function animateHidden() {
+    animationInProgress = true;
+    menuDown = false;
     var timer = setInterval(function () {
         if (currPos >= height) {
             currPos--;
-            element.style.top = currPos + 'px';
+            animatedMenu.style.top = currPos + 'px';
             console.log(currPos);
         } else {
             clearInterval(timer);
         }
-    }, 7);
-    menuDown = false;
+    }, 2);
 }
 
