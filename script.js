@@ -11,16 +11,7 @@ window.onload = function () {
     currPos = animatedMenu.offsetTop;
     height = animatedMenu.offsetTop;
     window.onscroll = function () {
-        var newY = window.pageYOffset;
-        if (newY < yPos && !animationInProgress) {
-            animateVisible();
-            animationInProgress = false;
-            console.log("Animation Finished");
-        } else if (newY > yPos && !animationInProgress) {
-            animateHidden();
-            animationInProgress = false;
-            console.log("Animation Finished");
-        }
+        
         yPos = newY;
     }
 }
@@ -51,6 +42,5 @@ function animateHidden() {
             clearInterval(downTimer);
         }
     }, 2);
-
 }
 
