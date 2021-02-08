@@ -93,3 +93,19 @@ p{
 .portfolioLink{
     text-decoration: underline;
 }
+
+iframe{
+    margin: 0 auto;
+    display: block;
+}
+
+.portfolioPar{
+    text-align: left;
+}
+
+#phillip {
+    display: block;
+    max-width: 560px;
+    max-height: 315px;
+}
+
