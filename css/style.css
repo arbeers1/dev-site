@@ -19,7 +19,7 @@ body {
     text-align: center;
     background-color: #D8C3A5;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: -10%;
     left: 0px;
     height: 10%;
