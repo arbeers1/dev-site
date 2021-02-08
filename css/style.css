@@ -7,13 +7,22 @@
 
 body {
     background-color: #EAE7DC;
-    margin-top: 20px;
-    padding: 0;
+    
 }
 
 .header {
     text-align: center;
-    margin: auto;
+    margin-top: 20px;
+}
+
+#onScrollMenu {
+    text-align: center;
+    background-color: #D8C3A5;
+    width: 100%;
+    position: absolute;
+    top: -10%;
+    left: 0px;
+    height: 10%;
 }
 
 a {
