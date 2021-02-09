@@ -15,6 +15,8 @@ window.onload = function () {
             image.style.visibility = "visible";
         } else {
             image.style.visibility = "hidden";
+            buttonOrientation = true;
+            animateMenu();
         }
     }
 }
