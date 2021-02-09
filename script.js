@@ -1,20 +1,34 @@
 var animatedMenu;
 var currPos;
 var height;
-
+var image;
+var buttonOrientation = false;
 
 window.onload = function () {
+    image = document.getElementById("menuButton");
     animatedMenu = document.getElementById("onScrollMenu");
     currPos = animatedMenu.offsetTop;
     height = animatedMenu.offsetTop;
     window.onscroll = function () {
         var yPos = window.pageYOffset;
         if (yPos > height * -1) {
-            document.getElementById("menuButton").style.visibility = "visible";
+            image.style.visibility = "visible";
         } else {
-            document.getElementById("menuButton").style.visibility = "hidden";
+            image.style.visibility = "hidden";
         }
     }
+}
+function animateMenu() {
+    if (!buttonOrientation) {
+        image.src = "res/up.png";
+        buttonOrientation = !buttonOrientation;
+        animateVisible();
+    } else {
+        image.src = "res/down.png";
+        buttonOrientation = !buttonOrientation;
+        animateHidden();
+    }
+    
 }
 
 function animateVisible() {

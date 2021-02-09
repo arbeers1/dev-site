@@ -33,6 +33,7 @@ body {
     max-height: 30px;
     left: 95%;
     visibility: hidden;
+    z-index: 99;
 }
 
 a {
