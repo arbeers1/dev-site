@@ -1,6 +1,3 @@
-var animationInProgress = false;
-var menuDown = false;
-var yPos = 0;
 var animatedMenu;
 var currPos;
 var height;
@@ -11,14 +8,17 @@ window.onload = function () {
     currPos = animatedMenu.offsetTop;
     height = animatedMenu.offsetTop;
     window.onscroll = function () {
-        
-        yPos = newY;
+        var yPos = window.pageYOffset;
+        if (yPos > height * -1) {
+            document.getElementById("menuButton").style.visibility = "visible";
+        } else {
+            document.getElementById("menuButton").style.visibility = "hidden";
+        }
     }
 }
 
 function animateVisible() {
     animationInProgress = true;
-    menuDown = true;
     var upTimer = setInterval(function () {
         if (currPos < 0) {
             currPos++;
@@ -32,7 +32,6 @@ function animateVisible() {
 
 function animateHidden() {
     animationInProgress = true;
-    menuDown = false;
     var downTimer = setInterval(function () {
         if (currPos > height) {
             currPos--;
