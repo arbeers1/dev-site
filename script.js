@@ -94,8 +94,8 @@ function resize() {
         document.getElementsByTagName("a")[i].style.fontSize = "xx-large";
     }
     for (i = 0; i < document.getElementsByTagName("h1").length; i++) {
-        document.getElementsByTagName("a")[i].style.fontSize = "xx-large";
-        document.getElementsByTagName("a")[i].style.fontFamily = "Arial"; //Display issues with custom font on mobile displays.
+        document.getElementsByTagName("h1")[i].style.fontSize = "xx-large";
+        document.getElementsByTagName("h1")[i].style.fontFamily = "Arial"; //Display issues with custom font on mobile displays.
     }
     document.getElementById("menuButton").style.maxHeight = "55px";
     document.getElementById("menuButton").style.maxWidth = "55px";
