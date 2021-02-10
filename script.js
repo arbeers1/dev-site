@@ -3,7 +3,6 @@ var currPos; //current position of menu
 var height; //height of menu
 var image; //button image element
 var buttonOrientation = false; //Orientation of button
-var delay = 2;
 
 /**
  * Onload function for site
@@ -17,7 +16,6 @@ window.onload = function () {
     //Checks if in a mobile browser and resizes some elements if so
     if (mobileCheck()) {
         resize();
-        delay = 1;
     }
 
     //Monitors scrolling to determine if drop down menu is necesarry or not
@@ -56,13 +54,12 @@ function animateVisible() {
     animationInProgress = true;
     var upTimer = setInterval(function () {
         if (currPos < 0) {
-            currPos++;
+            currPos += 2;
             animatedMenu.style.top = currPos + 'px';
-            console.log("down")
         } else {
             clearInterval(upTimer);
         }
-    }, delay);
+    }, 1);
 }
 
 /**
@@ -72,13 +69,12 @@ function animateHidden() {
     animationInProgress = true;
     var downTimer = setInterval(function () {
         if (currPos > height) {
-            currPos--;
+            currPos -= 2;
             animatedMenu.style.top = currPos + 'px';
-            console.log("hiding");
         } else {
             clearInterval(downTimer);
         }
-    }, delay);
+    }, 1);
 }
 
 /**
