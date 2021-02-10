@@ -3,6 +3,7 @@ var currPos; //current position of menu
 var height; //height of menu
 var image; //button image element
 var buttonOrientation = false; //Orientation of button
+var delay = 2;
 
 /**
  * Onload function for site
@@ -16,6 +17,7 @@ window.onload = function () {
     //Checks if in a mobile browser and resizes some elements if so
     if (mobileCheck()) {
         resize();
+        delay = 1;
     }
 
     //Monitors scrolling to determine if drop down menu is necesarry or not
@@ -60,7 +62,7 @@ function animateVisible() {
         } else {
             clearInterval(upTimer);
         }
-    }, 2);
+    }, delay);
 }
 
 /**
@@ -76,7 +78,7 @@ function animateHidden() {
         } else {
             clearInterval(downTimer);
         }
-    }, 2);
+    }, delay);
 }
 
 /**
@@ -98,7 +100,7 @@ function resize() {
     for (i = 0; i < document.getElementsByTagName("h1").length; i++) {
         document.getElementsByTagName("a")[i].style.fontSize = "xx-large";
     }
-    document.getElementById("menuButton").style.maxHeight = "70px";
-    document.getElementById("menuButton").style.maxWidth = "70px";
+    document.getElementById("menuButton").style.maxHeight = "55px";
+    document.getElementById("menuButton").style.maxWidth = "55px";
     document.getElementById("menuButton").style.left = "90%";
 }
