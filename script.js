@@ -98,7 +98,7 @@ function resize() {
     for (i = 0; i < document.getElementsByTagName("h1").length; i++) {
         document.getElementsByTagName("a")[i].style.fontSize = "xx-large";
     }
-    document.getElementById("menuButton").style.maxHeight = "100px";
-    document.getElementById("menuButton").style.maxWidth = "100px";
+    document.getElementById("menuButton").style.maxHeight = "70px";
+    document.getElementById("menuButton").style.maxWidth = "70px";
     document.getElementById("menuButton").style.left = "90%";
 }
