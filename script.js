@@ -1,17 +1,10 @@
 var animatedMenu; //animated menu element
-var currPos; //current position of menu
-var height; //height of menu
-var image; //button image element
-var buttonOrientation = false; //Orientation of button
 
 /**
  * Onload function for site
  * */
 window.onload = function () {
-    image = document.getElementById("menuButton");
     animatedMenu = document.getElementById("onScrollMenu");
-    currPos = animatedMenu.offsetTop;
-    height = animatedMenu.offsetTop;
 
     //Checks if in a mobile browser and resizes some elements if so
     if (mobileCheck()) {
@@ -21,60 +14,12 @@ window.onload = function () {
     //Monitors scrolling to determine if drop down menu is necesarry or not
     window.onscroll = function () {
         var yPos = window.pageYOffset;
-        if (yPos > height * -1) {
-            image.style.visibility = "visible";
+        if (yPos > 50) {
+            animatedMenu.style.visibility = "visible";
         } else {
-            image.style.visibility = "hidden";
-            buttonOrientation = true;
-            animateMenu();
+            animatedMenu.style.visibility = "hidden";
         }
     }
-}
-
-/**
- * Calls to animate menu 
- */
-function animateMenu() {
-    if (!buttonOrientation) {
-        image.src = "res/up.png";
-        buttonOrientation = !buttonOrientation;
-        animateVisible();
-    } else {
-        image.src = "res/down.png";
-        buttonOrientation = !buttonOrientation;
-        animateHidden();
-    }
-    
-}
-
-/**
- * Animates the drop down menu so that it is visible to the user 
- */
-function animateVisible() {
-    animationInProgress = true;
-    var upTimer = setInterval(function () {
-        if (currPos < 0) {
-            currPos += 2;
-            animatedMenu.style.top = currPos + 'px';
-        } else {
-            clearInterval(upTimer);
-        }
-    }, 1);
-}
-
-/**
- * Animates the drop menu upwards
- */
-function animateHidden() {
-    animationInProgress = true;
-    var downTimer = setInterval(function () {
-        if (currPos > height) {
-            currPos -= 2;
-            animatedMenu.style.top = currPos + 'px';
-        } else {
-            clearInterval(downTimer);
-        }
-    }, 1);
 }
 
 /**
